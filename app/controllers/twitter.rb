@@ -1,10 +1,10 @@
 require 'twitter' #cant put this in env
 
-get "/"
+get "/" do
  erb :index
 end
 
-put '/tweet'
+post '/tweet' do
   client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV["CONSUMER_KEY"]
     config.consumer_secret     = ENV["CONSUMER_SECRET"]
