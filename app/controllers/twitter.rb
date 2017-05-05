@@ -1,6 +1,6 @@
 require 'twitter' #cant put this in env
 
-get "/bla" do
+get "/random" do
   response = Unirest.post "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1",
   headers:{
     "X-Mashape-Key" => "KD90PxVMaJmshre4tJKZg0Ria1y4p1eyd0zjsn9FlOkqgOl9Ti",
@@ -17,12 +17,12 @@ post '/tweet' do
   client = Twitter::REST::Client.new do |config|
     config.consumer_key        = ENV["CONSUMER_KEY"]
     config.consumer_secret     = ENV["CONSUMER_SECRET"]
-    config.access_token        = ENV["ACCESS_TOKEN"]
-  #   config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
+    config.access_token        = session[:access_token]
+    config.access_token_secret = session[:secret_token]
   end
 
   client.update(actual)
-  redirect "/"
+  redirect "/random"
 end
 
 get '/getTweets' do

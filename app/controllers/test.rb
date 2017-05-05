@@ -28,12 +28,10 @@ get '/auth' do
   )
 
   if @client.authorized?
-    # Storing the access tokens so we don't have to go back to Twitter again
-    # in this session.  In a larger app you would probably persist these details somewhere.
     session[:access_token] = @access_token.token
     session[:secret_token] = @access_token.secret
     session[:user] = true
-    redirect '/'
+    redirect '/random'
   else
     redirect '/login'
   end
