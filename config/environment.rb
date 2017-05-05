@@ -14,10 +14,10 @@ require 'twitter'
 require 'pg'
 require 'active_record'
 require 'logger'
-
+require 'unirest'
 require 'sinatra'
 require "sinatra/reloader" if development?
-
+enable :sessions
 require 'erb'
 
 # Some helper constants for path-centric logic

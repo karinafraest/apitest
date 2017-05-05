@@ -1,5 +1,12 @@
-<h1>Twitter map </h1>
+<div class= "container">
+<h1>Random movie quote </h1>
+<blockquote><%= @full[:quote] %><footer><%= @full[:author]%></footer>
+</blockquote>
+
 <form action ="/tweet" method="post">
-  <input type="text" name="tweet"/>
-  <button>Submit</button>
+  <input type="hidden" name="quote" value="<%= @full[:quote]+"-"+@full[:author] %>">
+  <button class="btn btn-primary  btn-lg">Submit to twitter</button>
 </form>
+
+
+</div>

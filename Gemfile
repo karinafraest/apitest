@@ -12,6 +12,8 @@ gem 'activerecord', '~>4.2.0'
 gem 'simple_oauth'
 gem 'rake'
 gem 'twitter'
+gem 'twitter_oauth'
+gem 'unirest', '~>1.1.2'
 gem 'shotgun', '~>0.9.1'
 gem 'dotenv'
 group :test do
