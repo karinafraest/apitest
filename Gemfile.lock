@@ -149,5 +149,8 @@ DEPENDENCIES
   twitter_oauth
   unirest (~> 1.1.2)
 
+RUBY VERSION
+   ruby 2.2.5p319
+
 BUNDLED WITH
    1.14.6
