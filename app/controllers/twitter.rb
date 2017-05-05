@@ -1,12 +1,13 @@
-require 'twitter' #cant put this in env
+require 'twitter'
 
 get "/random" do
   response = Unirest.post "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1",
   headers:{
-    "X-Mashape-Key" => "KD90PxVMaJmshre4tJKZg0Ria1y4p1eyd0zjsn9FlOkqgOl9Ti",
+    "X-Mashape-Key" => ENV["MASHAPEKEY"],
     "Content-Type" => "application/x-www-form-urlencoded",
     "Accept" => "application/json"
   }
+
   quote = response.body
   @full = {quote: quote["quote"], author: quote["author"]}
  erb :index
@@ -27,7 +28,6 @@ end
 
 get '/getTweets' do
   user = client.user(params[:username])
-  p user
   redirect "/"
 end
 

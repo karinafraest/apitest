@@ -6,7 +6,6 @@ before "/*" do
 end
 
 get '/' do
-
 erb :index2
 end
 
@@ -20,7 +19,6 @@ end
 
 
 get '/auth' do
-# Exchange the request token for an access token.
   @access_token = @client.authorize(
     session[:request_token],
     session[:request_token_secret],
