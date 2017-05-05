@@ -5,8 +5,12 @@ before "/*" do
     :consumer_secret => ENV["CONSUMER_SECRET"])
 end
 
+get '/' do
+  erb :index2
+end
+
 get '/login' do
-  request_token = @client.request_token(:oauth_callback => "https://blooming-dawn-52218.herokuapp.com/auth")
+  request_token = @client.request_token(:oauth_callback => "#{ENV['CURRENT_PATH']}/auth")
   session[:request_token] = request_token.token
   session[:request_token_secret] = request_token.secret
   redirect request_token.authorize_url
@@ -25,9 +29,9 @@ get '/auth' do
     session[:access_token] = @access_token.token
     session[:secret_token] = @access_token.secret
     session[:user] = true
-    redirect '/'
+    redirect '/random'
   else
-    redirect '/login'
+    redirect '/'
   end
 
 end
