@@ -31,7 +31,7 @@ get '/auth' do
     session[:user] = true
     redirect '/random'
   else
-    redirect '/login'
+    redirect '/'
   end
 
 end

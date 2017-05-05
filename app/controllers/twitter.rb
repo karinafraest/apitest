@@ -28,7 +28,7 @@ end
 
 get '/getTweets' do
   user = client.user(params[:username])
-  redirect "/"
+  redirect "/random"
 end
 
 
